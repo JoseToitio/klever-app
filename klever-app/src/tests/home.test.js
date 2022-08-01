@@ -3,9 +3,9 @@ import React from 'react';
 import Home from '../pages/Home'
 
 describe('Testa page Home', () => {
-  test('Verifica se possui o texto "Klever"', () => {
+  test('Verifica se possui a logo da Klever', () => {
     render(<Home />);
-    const logoName = screen.getByText('Klever')
+    const logoName = screen.getByTestId('logo-klever')
     expect(logoName).toBeInTheDocument();
   });
   test('Verifica se possui o texto "Wish Wallet"', () => {

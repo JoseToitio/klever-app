@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home .star-img {
+  max-width: 15px;
+}
+
+.home .nav-items {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.home .walletP {
+  font-size: 8px;
+}
