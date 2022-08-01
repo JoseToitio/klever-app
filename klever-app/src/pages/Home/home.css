@@ -19,3 +19,19 @@
   text-align: center;
   justify-content: center;
 }
+
+.home .container-tokens {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  
+}
+
+.home .container-tokens .token {
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+.home .container-tokens .balance {
+  font-weight: bold;
+}

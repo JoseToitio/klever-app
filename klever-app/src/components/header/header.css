@@ -11,7 +11,7 @@
 }
 
 .header .nav-items .walletP{
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
 }
 
@@ -21,10 +21,13 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  justify-content:center;
   
 }
 
+.header .p-img {
+  display: flex;
+}
 .header .star-img {
   padding-right: 6px;
   max-width: 60px;
@@ -40,3 +43,8 @@
 .header .button-add-token:hover {
   background-color: rgb(61, 0, 61);
 }
+
+.header .button-back {
+  display: none;
+}
+
