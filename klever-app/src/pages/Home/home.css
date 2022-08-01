@@ -5,17 +5,17 @@
   flex-direction: column;
 }
 
-.home .star-img {
-  max-width: 15px;
+.home .walletP {
+  font-size: 40px;
 }
 
-.home .nav-items {
+.home .button-token {
+  background-color: purple;
+  color: white;
+}
+
+.container-header {
   display: flex;
   text-align: center;
   justify-content: center;
-  
-}
-
-.home .walletP {
-  font-size: 8px;
 }
