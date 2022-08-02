@@ -1,0 +1,37 @@
+.container .btnBack {
+  background-color: gray;
+  width: 100px;
+  height: 30px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-group {
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-save {
+  display: flex;
+  padding-top: 15px;
+  justify-content: space-between;
+}
+
+.div-label {
+  padding-bottom: 15px;
+}

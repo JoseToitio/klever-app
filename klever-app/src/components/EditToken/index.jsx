@@ -1,30 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./editToken.css";
 
-export default function TokenForm({ namePage }) {
-  const [inputToken, setInputToken] = useState("");
-  const [inputBalance, setInputBalance] = useState("");
+export default function TokenEdit({ namePage }) {
+  const params = useParams();
+  const [inputToken, setInputToken] = useState(params.name.split('-')[0]);
+  const [inputBalance, setInputBalance] = useState(params.name.split('-')[1]);
   const navigate = useNavigate();
+
   let tokens = JSON.parse(localStorage.getItem("tokens")) || [];
 
   const addToLocalStorage = () => {
-    const getToken = JSON.parse(localStorage.getItem("tokens")) || [];
     if (!inputToken || !inputBalance) {
       alert("Preencha os dados!");
-    } else if (getToken.filter((t) => t.token === inputToken).length > 0) {
-      alert("Token ja existe")
     } else {
-      tokens.push({
+      const newTokens = tokens.filter((t) => t.token !== params.name.split('-')[0])
+      newTokens.push({
         token: inputToken,
         balance: inputBalance,
       });
-      localStorage.setItem("tokens", JSON.stringify(tokens));
+      localStorage.setItem("tokens", JSON.stringify(newTokens));
       navigate('/');
     }
   };
+  
+  const removeToLocalStorage = () => {
+    if (window.confirm('Are you sure you want to save this thing into the database?')) {
+      // Save it!
+      const removeToken = tokens.filter((t) => t.token !== params.name.split('-')[0])
+      localStorage.setItem("tokens", JSON.stringify(removeToken));
+      navigate('/');
+      console.log('Thing was saved to the database.');
+    } else {
+      // Do nothing!
+      console.log('Thing was not saved to the database.');
+    }
+  }
+
   return (
     <div>
       <Container
@@ -50,26 +64,36 @@ export default function TokenForm({ namePage }) {
         <div className="div-label">
           <label htmlFor="token">Token</label>
           <input
+            style={{fontWeight: "bold", fontSize: "18px"}}
             type="text"
             id="token"
             name="firstname"
-            required
+            value={inputToken}
             onChange={({ target }) => setInputToken(target.value)}
           ></input>
         </div>
         <label htmlFor="balance">Balance</label>
         <input
           type="text"
+          style={{fontWeight: "bold", fontSize: "18px"}}
           id="balance"
           name="balance"
-          required
+          value={inputBalance}
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
         <div className="button-save">
+        <Button
+            size="small"
+            variant="contained"
+            style={{ backgroundColor: "#8d0000" }}
+            onClick={removeToLocalStorage}
+          >
+            Remove
+          </Button>
           <Button
             size="small"
             variant="contained"
-            style={{ backgroundColor: "purple" }}
+            style={{ backgroundColor: "#af00be" }}
             onClick={addToLocalStorage}
           >
             Save

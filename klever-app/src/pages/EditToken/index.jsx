@@ -1,5 +1,5 @@
 import React from 'react'
-import TokenForm from '../../components/editToken'
+import TokenForm from '../../components/EditToken'
 import Header from '../../components/header'
 
 export default function EditToken() {

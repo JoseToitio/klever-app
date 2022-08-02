@@ -1,5 +1,5 @@
 import React from "react";
-import TokenForm from "../../components/editToken";
+import TokenForm from "../../components/AddToken/index";
 import Header from "../../components/header";
 
 import "./addToken.css";
