@@ -29,7 +29,7 @@ input {
 .button-save {
   display: flex;
   padding-top: 15px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .div-label {

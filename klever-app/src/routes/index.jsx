@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import AddToken from "./pages/AddToken/index";
+import Home from "../pages/Home";
+import AddToken from "../pages/AddToken/index";
 
 export default function Routers() {
   return (
