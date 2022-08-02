@@ -11,8 +11,10 @@
 }
 
 .header .nav-items .walletP{
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
+  max-width: 400px;
+  width: 290px;
 }
 
 .header .nav-items {
@@ -21,7 +23,7 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content:center;
+  justify-content:space-evenly;
   
 }
 
@@ -29,17 +31,14 @@
   display: flex;
 }
 .header .star-img {
-  padding-right: 6px;
   max-width: 60px;
 }
 
 .header .button-add-token {
+  font-size: 12px;
   background-color: rgb(160, 0, 160);
 }
 
-.header .div-button {
-  padding-left: 200px;
-}
 .header .button-add-token:hover {
   background-color: rgb(61, 0, 61);
 }

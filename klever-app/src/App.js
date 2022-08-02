@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="/editToken" element={<AddToken />} />
+        <Route path="/addToken" element={<AddToken />} />
       </Routes>
     </div>
   );

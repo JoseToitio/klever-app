@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../components/header";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
@@ -23,11 +22,11 @@ export default function TokenForm({ namePage }) {
         balance: inputBalance,
       });
       localStorage.setItem("tokens", JSON.stringify(tokens));
+      navigate('/');
     }
   };
   return (
     <div>
-      <Header name="Voltar" className="button-back" />
       <Container
         maxWidth="sm"
         className="container"
