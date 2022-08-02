@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
+import {createMemoryHistory} from 'history'
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Home from '../pages/Home'
@@ -20,5 +22,14 @@ describe('Testa page Home', () => {
     expect(btn).toBeInTheDocument();
     expect(btn).toHaveProperty('type', 'button');
     expect(btn).toHaveTextContent('Add Token');
+  })
+
+  test('Clica em add Token e redireciona para pagina "/addToken"', async () => {
+    const history = createMemoryHistory();
+    render(<Router history={history}><Home /></Router>);
+    const user = userEvent.setup();
+    const btn = screen.getByTestId('btn-add-token');
+    await user.click(btn)
+    expect(screen.getByText('Add Token')).toBeInTheDocument();
   })
 })
