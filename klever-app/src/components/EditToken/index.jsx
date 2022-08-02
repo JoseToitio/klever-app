@@ -27,7 +27,7 @@ export default function TokenEdit({ namePage }) {
   };
   
   const removeToLocalStorage = () => {
-    if (window.confirm('Are you sure you want to save this thing into the database?')) {
+    if (window.confirm('Você deseja excluir esse Token?')) {
       // Save it!
       const removeToken = tokens.filter((t) => t.token !== params.name.split('-')[0])
       localStorage.setItem("tokens", JSON.stringify(removeToken));
