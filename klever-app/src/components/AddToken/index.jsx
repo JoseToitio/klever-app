@@ -53,7 +53,9 @@ export default function TokenForm({ namePage }) {
             type="text"
             id="token"
             name="firstname"
+            value={inputToken}
             required
+            data-testid="input-token"
             onChange={({ target }) => setInputToken(target.value)}
           ></input>
         </div>
@@ -63,6 +65,8 @@ export default function TokenForm({ namePage }) {
           id="balance"
           name="balance"
           required
+          value={inputBalance}
+          data-testid="input-balance"
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
         <div className="button-save">

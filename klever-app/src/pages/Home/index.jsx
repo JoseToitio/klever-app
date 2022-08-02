@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/header/index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import Container from "@mui/material/Container";
 import { BiEdit } from "react-icons/bi";
 import "./home.css";
