@@ -52,7 +52,7 @@ export default function TokenForm({ namePage }) {
           <input
             type="text"
             id="token"
-            name="firstname"
+            name="token"
             value={inputToken}
             required
             data-testid="input-token"
@@ -74,6 +74,7 @@ export default function TokenForm({ namePage }) {
             size="small"
             variant="contained"
             style={{ backgroundColor: "#af00be" }}
+            data-testid="btn-save"
             onClick={addToLocalStorage}
           >
             Save
