@@ -70,7 +70,7 @@ export default function TokenForm({ namePage }) {
           data-testid="input-balance"
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
-        <div className="button-save">
+        <div className="btn-save">
           <Button
             size="small"
             variant="contained"

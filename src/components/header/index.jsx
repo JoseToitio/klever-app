@@ -17,7 +17,7 @@ export default function Header({ datatest, className, name, funcClick }) {
         />
       </div>
       <div className="nav-items">
-        <div style={{ display: 'flex'}}>
+        <div className="div-star-img">
           <img className="star-img" src={star} alt="shooting-star" />
           <p className="walletP">Wish Wallet</p>
         </div>

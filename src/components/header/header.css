@@ -14,7 +14,7 @@
   font-size: 30px;
   font-weight: bold;
   max-width: 400px;
-  width: 290px;
+  width: 250px;
 }
 
 .header .nav-items {
@@ -23,10 +23,14 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content:space-around;
   
 }
-
+.div-star-img {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .header .p-img {
   display: flex;
 }
