@@ -27,17 +27,27 @@ export default function Home() {
         name="Add Token"
         funcClick={handleClick}
       />
-      <Container className="container-tokens" maxWidth="sm" style={{paddingLeft: 115, paddingRight: 80}}>
+      <Container
+        className="container-tokens"
+        maxWidth="sm"
+        style={{ paddingLeft: 115, paddingRight: 80 }}
+      >
         <p className="token">Tokens</p>
         <p className="balance">Balance</p>
       </Container>
-      <Container maxWidth="sm" style={{paddingLeft: 100, paddingRight: 80}}>
+      <Container maxWidth="sm" style={{ paddingLeft: 100, paddingRight: 80 }}>
         {tokens &&
           tokens.map((t, index) => (
-            <div key={index} className="container-items" >
-              <div style={{display: 'flex', alignItems: 'center'}}>
-                <BiEdit onClick={() => navigate(`/editToken/${t.token}-${t.balance}`)} data-testid="btn-editToken" size="20px"/>
-                <p style={{paddingLeft:'5px'}}className="token">{t.token}</p>
+            <div key={index} className="container-items">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <BiEdit
+                  onClick={() => navigate(`/editToken/${t.token}-${t.balance}`)}
+                  data-testid={`btn-editToken-${index}`}
+                  size="20px"
+                />
+                <p style={{ paddingLeft: "5px" }} className="token">
+                  {t.token}
+                </p>
               </div>
               <p className="balance">{t.balance}</p>
             </div>

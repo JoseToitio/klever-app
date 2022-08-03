@@ -44,7 +44,7 @@ describe("Testa page Home", () => {
     expect(inputToken).toHaveValue('KLV');
     expect(inputBalance).toHaveValue('10,20.30');
     await user.click(btnSave);
-    const btnEdit = screen.getByTestId("btn-editToken");
+    const btnEdit = screen.getByTestId("btn-editToken-0");
     expect(btnEdit).toBeInTheDocument();
   });
 });

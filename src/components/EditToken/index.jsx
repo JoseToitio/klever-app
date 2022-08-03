@@ -67,7 +67,8 @@ export default function TokenEdit({ namePage }) {
             style={{fontWeight: "bold", fontSize: "18px"}}
             type="text"
             id="token"
-            name="firstname"
+            name="token"
+            data-testid="input-token"
             value={inputToken}
             onChange={({ target }) => setInputToken(target.value)}
           ></input>
@@ -78,6 +79,7 @@ export default function TokenEdit({ namePage }) {
           style={{fontWeight: "bold", fontSize: "18px"}}
           id="balance"
           name="balance"
+          data-testid="input-balance"
           value={inputBalance}
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
@@ -85,6 +87,7 @@ export default function TokenEdit({ namePage }) {
         <Button
             size="small"
             variant="contained"
+            data-testid="btn-remove"
             style={{ backgroundColor: "#8d0000" }}
             onClick={removeToLocalStorage}
           >
@@ -93,6 +96,7 @@ export default function TokenEdit({ namePage }) {
           <Button
             size="small"
             variant="contained"
+            data-testid="btn-save"
             style={{ backgroundColor: "#af00be" }}
             onClick={addToLocalStorage}
           >
