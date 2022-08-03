@@ -15,14 +15,14 @@ export default function TokenForm({ namePage }) {
     if (!inputToken || !inputBalance) {
       alert("Preencha os dados!");
     } else if (getToken.filter((t) => t.token === inputToken).length > 0) {
-      alert("Token ja existe")
+      alert("Token ja existe");
     } else {
       tokens.push({
         token: inputToken,
         balance: inputBalance,
       });
       localStorage.setItem("tokens", JSON.stringify(tokens));
-      navigate('/');
+      navigate("/");
     }
   };
   return (

@@ -6,8 +6,8 @@ import "./editToken.css";
 
 export default function TokenEdit({ namePage }) {
   const params = useParams();
-  const [inputToken, setInputToken] = useState(params.name.split('-')[0]);
-  const [inputBalance, setInputBalance] = useState(params.name.split('-')[1]);
+  const [inputToken, setInputToken] = useState(params.name.split("-")[0]);
+  const [inputBalance, setInputBalance] = useState(params.name.split("-")[1]);
   const navigate = useNavigate();
 
   let tokens = JSON.parse(localStorage.getItem("tokens")) || [];
@@ -16,28 +16,32 @@ export default function TokenEdit({ namePage }) {
     if (!inputToken || !inputBalance) {
       alert("Preencha os dados!");
     } else {
-      const newTokens = tokens.filter((t) => t.token !== params.name.split('-')[0])
+      const newTokens = tokens.filter(
+        (t) => t.token !== params.name.split("-")[0]
+      );
       newTokens.push({
         token: inputToken,
         balance: inputBalance,
       });
       localStorage.setItem("tokens", JSON.stringify(newTokens));
-      navigate('/');
+      navigate("/");
     }
   };
-  
+
   const removeToLocalStorage = () => {
-    if (window.confirm('Você deseja excluir esse Token?')) {
+    if (window.confirm("Você deseja excluir esse Token?")) {
       // Save it!
-      const removeToken = tokens.filter((t) => t.token !== params.name.split('-')[0])
+      const removeToken = tokens.filter(
+        (t) => t.token !== params.name.split("-")[0]
+      );
       localStorage.setItem("tokens", JSON.stringify(removeToken));
-      navigate('/');
-      console.log('Thing was saved to the database.');
+      navigate("/");
+      console.log("Thing was saved to the database.");
     } else {
       // Do nothing!
-      console.log('Thing was not saved to the database.');
+      console.log("Thing was not saved to the database.");
     }
-  }
+  };
 
   return (
     <div>
@@ -64,7 +68,7 @@ export default function TokenEdit({ namePage }) {
         <div className="div-label">
           <label htmlFor="token">Token</label>
           <input
-            style={{fontWeight: "bold", fontSize: "18px"}}
+            style={{ fontWeight: "bold", fontSize: "18px" }}
             type="text"
             id="token"
             name="token"
@@ -76,7 +80,7 @@ export default function TokenEdit({ namePage }) {
         <label htmlFor="balance">Balance</label>
         <input
           type="text"
-          style={{fontWeight: "bold", fontSize: "18px"}}
+          style={{ fontWeight: "bold", fontSize: "18px" }}
           id="balance"
           name="balance"
           data-testid="input-balance"
@@ -84,7 +88,7 @@ export default function TokenEdit({ namePage }) {
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
         <div className="button-save">
-        <Button
+          <Button
             size="small"
             variant="contained"
             data-testid="btn-remove"

@@ -39,7 +39,7 @@ describe("Testa page AddToken", () => {
     expect(inputBalance).toHaveValue("10,20.30");
     await user.click(btnSave);
     const token = screen.getByText("KLV");
-    const Balance = screen.getByText("10,20.30")
+    const Balance = screen.getByText("10,20.30");
     expect(token).toBeInTheDocument();
     expect(Balance).toBeInTheDocument();
   });
@@ -57,5 +57,5 @@ describe("Testa page AddToken", () => {
     await user.click(btnSave);
     expect(alertMock).toHaveBeenCalledTimes(1);
     window.alert.mockClear();
-  })
+  });
 });
