@@ -37,6 +37,7 @@ export default function TokenForm({ namePage }) {
           size="sm"
           variant="contained"
           className="btnBack"
+          data-testid="btn-back"
           onClick={() => navigate("/")}
         >
           Voltar

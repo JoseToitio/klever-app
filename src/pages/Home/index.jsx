@@ -36,7 +36,7 @@ export default function Home() {
           tokens.map((t, index) => (
             <div key={index} className="container-items" >
               <div style={{display: 'flex', alignItems: 'center'}}>
-                <BiEdit onClick={() => navigate(`/editToken/${t.token}-${t.balance}`)} data-testid="btn-editToken"/>
+                <BiEdit onClick={() => navigate(`/editToken/${t.token}-${t.balance}`)} data-testid="btn-editToken" size="20px"/>
                 <p style={{paddingLeft:'5px'}}className="token">{t.token}</p>
               </div>
               <p className="balance">{t.balance}</p>
