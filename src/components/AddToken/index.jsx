@@ -7,15 +7,29 @@ import "./addToken.css";
 export default function TokenForm({ namePage }) {
   const [inputToken, setInputToken] = useState("");
   const [inputBalance, setInputBalance] = useState("");
+  const [tokenError, setTokenError] = useState(false);
+  const [tokenExist, setTokenExist] = useState(false);
+  const [balanceErro, setBalanceErro] = useState(false);
   const navigate = useNavigate();
   let tokens = JSON.parse(localStorage.getItem("tokens")) || [];
 
   const addToLocalStorage = () => {
     const getToken = JSON.parse(localStorage.getItem("tokens")) || [];
-    if (!inputToken || !inputBalance) {
-      alert("Preencha os dados!");
+    if (!inputToken && !inputBalance) {
+      setTokenExist(false);
+      setTokenError(true);
+      setBalanceErro(true);
+    } else if (!inputToken) {
+      setTokenExist(false);
+      setTokenError(true);
+      setBalanceErro(false);
+    } else if (!inputBalance) {
+      setTokenExist(false);
+      setBalanceErro(true);
     } else if (getToken.filter((t) => t.token === inputToken).length > 0) {
-      alert("Token ja existe");
+      setTokenExist(true);
+      setTokenError(false);
+      setBalanceErro(false);
     } else {
       tokens.push({
         token: inputToken,
@@ -24,6 +38,17 @@ export default function TokenForm({ namePage }) {
       localStorage.setItem("tokens", JSON.stringify(tokens));
       navigate("/");
     }
+  };
+
+  const balanceError = () => {
+    return <span className="tokenError">Preencha os dados de Balance!</span>;
+  };
+  const tokenErro = () => {
+    return <span className="tokenError">Preencha os dados de Token!</span>;
+  };
+
+  const tokenExists = () => {
+    return <span className="tokenError">Token já existe</span>;
   };
   return (
     <div>
@@ -59,6 +84,7 @@ export default function TokenForm({ namePage }) {
             data-testid="input-token"
             onChange={({ target }) => setInputToken(target.value)}
           ></input>
+          {tokenError && tokenErro()}
         </div>
         <label htmlFor="balance">Balance</label>
         <input
@@ -70,6 +96,8 @@ export default function TokenForm({ namePage }) {
           data-testid="input-balance"
           onChange={({ target }) => setInputBalance(target.value)}
         ></input>
+        {balanceErro && balanceError()}
+        {tokenExist && tokenExists()}
         <div className="btn-save">
           <Button
             size="small"

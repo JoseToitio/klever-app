@@ -35,3 +35,7 @@ input {
 .div-label {
   padding-bottom: 15px;
 }
+
+.tokenError {
+  color: rgb(223, 1, 1);
+}
