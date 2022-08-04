@@ -30,7 +30,7 @@ npm start
      - Ao clicar no ícone "Save" botão:
        - [x] Salve os dados no localStorage do navegador
        - [x] Navegar o usuário para a página Home
-     - Bonus
+     - Bônus
        - [x] O nome do Token deve ser único, o usuário não deve ter nomes de token repetidos
        - [x] Exibir as mensagens de erro do formulário para o usuário
   - Edit Token
@@ -41,7 +41,7 @@ npm start
      - Ao clicar no botão "Remove"
        - [x] Remova a data do armazenamento local
        - [x] Navegar o usuário para a página Home
-     - Bonus
+     - Bônus
        - [x] Quando o usuário clicar no botão "Remove" deverá exibir um alerta ao usuário para confirmar a remoção.
          - [x] Se confirmado, o token deve ser excluído
          - [x] Se negado, o alerta fecha e o token não deve ser excluído
