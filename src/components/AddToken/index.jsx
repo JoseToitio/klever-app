@@ -25,6 +25,7 @@ export default function TokenForm({ namePage }) {
       setBalanceErro(false);
     } else if (!inputBalance) {
       setTokenExist(false);
+      setTokenError(false);
       setBalanceErro(true);
     } else if (getToken.filter((t) => t.token === inputToken).length > 0) {
       setTokenExist(true);
@@ -48,7 +49,7 @@ export default function TokenForm({ namePage }) {
   };
 
   const tokenExists = () => {
-    return <span className="tokenError">Token já existe</span>;
+    return <span className="tokenError">Token já existe!</span>;
   };
   return (
     <div>

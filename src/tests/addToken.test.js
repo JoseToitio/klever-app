@@ -19,11 +19,24 @@ describe("Testa page AddToken", () => {
 
   test("Verifica se ao não passar dados exibe um alerta na tela", async () => {
     renderWithRouter(<AddToken />);
-    const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const btnSave = screen.getByTestId("btn-save");
     await user.click(btnSave);
-    expect(alertMock).toHaveBeenCalledTimes(1);
-    window.alert.mockClear();
+    expect(screen.getByText('Preencha os dados de Token!')).toBeInTheDocument();
+    expect(screen.getByText('Preencha os dados de Balance!')).toBeInTheDocument();
+  });
+
+  test("Verifica Validação", async () => {
+    renderWithRouter(<AddToken />);
+    const btnSave = screen.getByTestId("btn-save");
+    const inputToken = screen.getByTestId("input-token");
+    const inputBalance = screen.getByTestId("input-balance");
+    await user.type(inputToken, "KLV");
+    await user.click(btnSave);
+    expect(screen.getByText('Preencha os dados de Balance!')).toBeInTheDocument();
+    await user.clear(inputToken);
+    await user.type(inputBalance, "10,20.30");
+    await user.click(btnSave);
+    expect(screen.getByText('Preencha os dados de Token!')).toBeInTheDocument();
   });
 
   test("Verifica se passar os dados corretamente salva o token e redireciona para pagina inicial", async () => {
@@ -52,10 +65,8 @@ describe("Testa page AddToken", () => {
     const inputBalance = screen.getByTestId("input-balance");
     await user.type(inputToken, "KLV");
     await user.type(inputBalance, "10,20.30");
-    const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const btnSave = screen.getByTestId("btn-save");
     await user.click(btnSave);
-    expect(alertMock).toHaveBeenCalledTimes(1);
-    window.alert.mockClear();
+    expect(screen.getByText('Token já existe!')).toBeInTheDocument();
   });
 });
