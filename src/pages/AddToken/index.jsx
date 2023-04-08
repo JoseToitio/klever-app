@@ -7,6 +7,7 @@ export default function AddToken() {
     <div>
       <Header name="Voltar" className="button-back" />
       <TokenForm namePage="Add Token" classNameButton="button-remove" />
+      <p>a</p>
     </div>
   );
 }
